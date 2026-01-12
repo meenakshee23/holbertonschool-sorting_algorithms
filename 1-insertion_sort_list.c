@@ -38,4 +38,3 @@ listint_t *current, *temp;
 		current = current->next;
 	}
 }
-
