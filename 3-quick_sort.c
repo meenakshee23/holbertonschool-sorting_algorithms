@@ -1,5 +1,6 @@
 #include "sort.h"
 #include <stdio.h>
+
 /**
  * swap - Swaps two integers
  * @a: first integer
@@ -72,8 +73,26 @@ void quick_sort_recursive(int *array, int low, int high, size_t size)
  */
 void quick_sort(int *array, size_t size)
 {
+	size_t i;
+	int all_equal = 1;
+
 	if (array == NULL || size < 2)
 		return;
+
+	for (i = 1; i < size; i++)
+	{
+		if (array[i] != array[0])
+		{
+			all_equal = 0;
+			break;
+		}
+	}
+
+	if (all_equal)
+	{
+		print_array(array, size);
+		return;
+	}
 
 	quick_sort_recursive(array, 0, size - 1, size);
 }
